@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="game-screen">
+    <h1>Guess the Word</h1>
+    <button id="start-game" type="reset" value="reset">Start Game</button>
+    <p id="lives"></p>
+    <div id="guess-section">
+      <div>
+        <input id="input" type="text" placeholder="Enter Letter" maxlength="1">
+        <button id="letter-guess" type="reset">SUBMIT</button>
+      </div>
+      <p id="word"></p>
+  </div>
+  <h2>Wrong Letters</h2>
+  <p id="graveyard"></p>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+ <script src="JS/common-words.js"></script> 
+ <scripts src="JS/pubsub.js"></script> 
+ <script src="JS/main.js"></script> 
+</body>
+</html>

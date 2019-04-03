@@ -1,0 +1,32 @@
+h1 {
+  font-size: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#guess-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#lives {
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+#word {
+  letter-spacing: 2px;
+  font-size: 50px;
+  margin-left: 150px;
+}
+
+#graveyard {
+  letter-spacing: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
