@@ -7,8 +7,11 @@ var words3OrMore = commonWords.filter(function(item){
 });
 
 var placeWord = document.querySelector("#word");
+var placeImg = document.querySelector("#word-section");
 var lifeCount = document.querySelector("#lives");
+var lifeBar = document.getElementById("#lives");
 var graveyard = document.querySelector("#graveyard");
+var audio = document.querySelector("#audio");
 
 var word = Math.floor(Math.random() * words3OrMore.length);
 
@@ -23,14 +26,17 @@ var letterComparer = randomWord.split('');
 
 var wordArr = wordHidden.split('');
 
-var lives = 8;
+var lives = 100;
 
 var graveArr = [];
+
+var backgroundSizing = 250;
 
 $("#start-game").on("click", function(){
 
   placeWord.innerHTML = wordHidden;
-  lifeCount.innerHTML = `Lives: ${lives}`;
+  lifeCount.innerHTML = `${lives}%`;
+  $("#lives").width(backgroundSizing);
 
   if(!(wordArr.join('') === randomWord)){
     $("#letter-guess").on("click", function(e){
@@ -39,18 +45,24 @@ $("#start-game").on("click", function(){
       if(wordArr.join('') !== randomWord){
         if (letterComparer.indexOf(value) === -1) {
             if(graveArr.indexOf(value) === -1) {
-              lives--
+              backgroundSizing -= 25;
+              lives -= 10;
               graveArr.push(value);
               graveyard.innerHTML = graveArr.join('');
+              $("#lives").width(backgroundSizing);
+              audio.play();
             }
             else {
               alert("Already used letter.");
             }
             if(lives === 0) {
-              alert("You lost.")
-              lives = 8;
-              location.reload();
-              graveArr = [];
+              placeImg.innerHTML = '<img src="assets/loser-screen2.gif" style= "margin-left: 20px; border: 5px solid black;" />';
+              $("#start-game").on("click", function(){
+                location.reload();
+                backgroundSizing = 250;
+                lives = 100;
+                graveArr = [];
+              })
             }
         } else {
           for(var i = 0; i < letterComparer.length; i++){
@@ -61,11 +73,12 @@ $("#start-game").on("click", function(){
         }
       }
       $("#input").val('');
-      lifeCount.innerHTML = `Lives: ${lives}`;
+      lifeCount.innerHTML = `${lives}%`;
       placeWord.innerHTML = wordArr.join('');
       if(wordArr.join('') === randomWord) {
         alert("You won!");
         graveArr = [];
+        backgroundSizing = 250;
       }
     })
   }else {

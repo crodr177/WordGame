@@ -8,19 +8,26 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div id="game-screen">
-    <h1>Guess the Word</h1>
-    <button id="start-game" type="reset" value="reset">Start Game</button>
-    <p id="lives"></p>
-    <div id="guess-section">
-      <div>
-        <input id="input" type="text" placeholder="Enter Letter" maxlength="1">
-        <button id="letter-guess" type="reset">SUBMIT</button>
-      </div>
-      <p id="word"></p>
+  <div id="container">
+    <div id="game-screen">
+      <h1>Ultimate Hangman!</h1>
+      <button id="start-game" type="reset" value="reset">Start Game</button>
+      <p id="lives"></p>
+      <div id="guess-section">
+        <div id="input-section">
+          <input id="input" type="text" placeholder="Enter Letter" maxlength="1">
+          <button id="letter-guess" type="reset">SUBMIT</button>
+          <audio id ="audio" src="assets/my-leg_2.mp3"></audio>
+        </div>
+        <div id="word-section">
+          <p id="word"></p>
+        </div>
+    </div>
+    <div id="wrong-answers">
+      <h2>WRONG LETTERS</h2>
+      <p id="graveyard"></p>
+    </div>
   </div>
-  <h2>Wrong Letters</h2>
-  <p id="graveyard"></p>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
  <script src="JS/common-words.js"></script> 
